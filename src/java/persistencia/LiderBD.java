@@ -47,6 +47,17 @@ public class LiderBD {
         return lista;
     }
     
+    public static Lider getByCpf(String cpf){
+        lerXml();
+        for(int i=0; i < lista.size(); i++){
+            Lider cadaLider = lista.get(i);
+            if (cadaLider.getCpf().equals(cpf)){
+                return cadaLider;                
+            }
+        }
+        return null;
+    }
+    
     //pega o que está no XML e coloca na lista 
     public static void lerXml(){
         File arquivo=new File(caminho + "lideres.xml");

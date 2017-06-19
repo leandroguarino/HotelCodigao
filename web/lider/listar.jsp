@@ -39,7 +39,7 @@
                     <td><%=cadaLider.getNome()%></td>
                     <td><%=dataNascimento%></td>
                     <td>
-                        <a href="cadastrar.jsp">Alterar</a>
+                        <a href="cadastrar.jsp?cpf=<%=cadaLider.getCpf()%>">Alterar</a>
                         <a href="excluir.jsp?cpf=<%=cadaLider.getCpf()%>" onclick="return confirm('Deseja realmente excluir?')">Excluir</a>
                     </td>
                 </tr>

@@ -11,6 +11,7 @@
     </head>
     <body>
         <%
+        String idAlterado = request.getParameter("idAlterado");
         String nome = request.getParameter("nome");
         String cpf = request.getParameter("cpf");
         String telefone = request.getParameter("telefone");
@@ -21,15 +22,26 @@
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         Date data = formato.parse(dataNascimento);
         
-        Lider lider = new Lider();
+        Lider lider;
+        if (idAlterado != "null"){
+            lider = LiderBD.getByCpf(idAlterado);
+        }else{ //se for um novo cadastro
+            lider = new Lider();
+        }
         lider.setNome(nome);
         lider.setCpf(cpf);
         lider.setCidade(cidade);
         lider.setEstado(estado);
         lider.setDataNascimento(data);
         lider.setTelefone(telefone);
-        LiderBD.inserir(lider);
-        %>        
-        Líder cadastrado com sucesso
+        if (idAlterado != "null"){
+            LiderBD.alterar(lider);
+            out.println("Líder alterado com sucesso");
+        }else{
+            LiderBD.inserir(lider);
+            out.println("Líder cadastrado com sucesso");
+        }
+        %>
+        
     </body>
 </html>
