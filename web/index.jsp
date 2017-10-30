@@ -6,6 +6,23 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+        <%
+        String erro = request.getParameter("erro");
+        if (erro != null){
+            if (erro.equals("USUARIO_NAO_EXISTE")){
+                %>
+                Esse usuário não existe
+                <%
+            }
+        }   
+        %>
+        <form name="formLogin" method="post" action="logar.jsp">
+            <label>Login</label>
+            <input type="text" name="login" /><br />
+            <label>Senha</label>
+            <input type="password" name="senha" />
+            <input type="submit" name="entrar" value="Entrar" />
+        </form>
     </body>
 </html>
