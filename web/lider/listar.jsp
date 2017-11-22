@@ -1,8 +1,10 @@
+<%@page import="dominio.Funcionario"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="dominio.Lider"%>
 <%@page import="persistencia.LiderBD"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/validarUsuario.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,6 +12,7 @@
         <title>Lista de líderes</title>
     </head>
     <body>
+        <jsp:include page="../menu.jsp"></jsp:include>
         <h1>Lista de líderes</h1>
         
         <table>

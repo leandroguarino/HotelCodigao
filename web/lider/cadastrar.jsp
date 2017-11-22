@@ -2,6 +2,7 @@
 <%@page import="persistencia.LiderBD"%>
 <%@page import="dominio.Lider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/validarUsuario.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +25,7 @@
             dataNascimento = formato.format(lider.getDataNascimento());
         }
         %>
-        
+        <jsp:include page="../menu.jsp"></jsp:include>
         <h1>Cadastro de Líderes</h1>
         <form name="formCadastro" method="post" action="salvar.jsp">
             <label>Nome</label>
